@@ -44,13 +44,13 @@ function EventList({ onSelect }: { onSelect: (id: string) => void }) {
       <motion.div variants={stagger} initial="hidden" animate="visible" className="w-full">
         <motion.h2
           variants={rise}
-          className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl xl:text-7xl"
+          className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl xl:text-6xl"
         >
           Events
         </motion.h2>
         <motion.p
           variants={rise}
-          className="mt-3 max-w-2xl text-lg leading-relaxed text-foreground/80 sm:text-xl lg:mt-4 lg:text-2xl"
+          className="mt-3 max-w-2xl text-base leading-relaxed text-foreground/80 sm:text-lg lg:mt-4 lg:text-xl"
         >
           Conferences and gatherings I&apos;ve taken part in. Pick one to see the details.
         </motion.p>
@@ -68,18 +68,18 @@ function EventList({ onSelect }: { onSelect: (id: string) => void }) {
               className="group flex flex-col rounded-2xl border border-foreground/15 bg-foreground/[0.05] p-6 text-left transition-colors hover:border-foreground/30 hover:bg-foreground/[0.08] lg:p-7"
             >
               <div className="flex items-start justify-between gap-3">
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-foreground/20 px-2.5 py-0.5 text-[13px] font-medium text-foreground/75">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-foreground/20 px-2.5 py-0.5 text-[12px] font-medium text-foreground/75">
                   <CalendarDays className="size-3.5" />
                   {event.date}
                 </span>
                 <ArrowUpRight className="size-5 shrink-0 text-foreground/50 transition-colors group-hover:text-foreground" />
               </div>
 
-              <h3 className="mt-4 text-2xl font-semibold leading-snug text-foreground lg:text-3xl">
+              <h3 className="mt-4 text-xl font-semibold leading-snug text-foreground lg:text-2xl">
                 {event.name}
               </h3>
-              <p className="mt-1 text-sm font-medium text-foreground/60">{event.org}</p>
-              <p className="mt-3 text-[15px] leading-relaxed text-foreground/80 lg:text-base">
+              <p className="mt-1 text-[13px] font-medium text-foreground/60">{event.org}</p>
+              <p className="mt-3 text-[13px] leading-relaxed text-foreground/80 lg:text-[15px]">
                 {event.blurb}
               </p>
             </motion.button>
@@ -108,20 +108,20 @@ function EventDetail({
       <button
         type="button"
         onClick={onBackToList}
-        className="mb-6 inline-flex items-center gap-1.5 rounded-full border border-foreground/15 bg-foreground/5 px-4 py-2 text-sm font-medium text-foreground/75 transition-colors hover:border-foreground/30 hover:text-foreground lg:text-base"
+        className="mb-6 inline-flex items-center gap-1.5 rounded-full border border-foreground/15 bg-foreground/5 px-4 py-2 text-[13px] font-medium text-foreground/75 transition-colors hover:border-foreground/30 hover:text-foreground lg:text-sm"
       >
-        <ArrowLeft className="size-4 lg:size-[18px]" />
+        <ArrowLeft className="size-3.5 lg:size-4" />
         All events
       </button>
 
-      <p className="text-[13px] font-semibold uppercase tracking-[0.18em] text-foreground/55 lg:text-sm">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground/55 lg:text-xs">
         {event.org}
       </p>
-      <h2 className="mt-2 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+      <h2 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
         {event.name}
       </h2>
 
-      <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[15px] text-foreground/80 lg:text-base">
+      <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[13px] text-foreground/80 lg:text-[15px]">
         <span className="inline-flex items-center gap-1.5">
           <CalendarDays className="size-[18px]" />
           {event.date}
@@ -136,7 +136,7 @@ function EventDetail({
         </span>
       </div>
 
-      <p className="mt-6 max-w-3xl text-lg leading-relaxed text-foreground/85 lg:text-xl">
+      <p className="mt-6 max-w-3xl text-base leading-relaxed text-foreground/85 lg:text-lg">
         {event.blurb}
       </p>
 
@@ -144,7 +144,7 @@ function EventDetail({
         {event.highlights.map((line) => (
           <li
             key={line}
-            className="flex gap-2.5 text-[15px] leading-relaxed text-foreground/85 lg:text-base"
+            className="flex gap-2.5 text-[13px] leading-relaxed text-foreground/85 lg:text-[15px]"
           >
             <span aria-hidden className="mt-2 size-1 shrink-0 rounded-full bg-foreground/50" />
             {line}
@@ -156,7 +156,7 @@ function EventDetail({
         {event.tags.map((tag) => (
           <span
             key={tag}
-            className="rounded-md border border-foreground/20 bg-foreground/[0.06] px-2 py-0.5 font-mono text-[13px] text-foreground/80 lg:text-sm"
+            className="rounded-md border border-foreground/20 bg-foreground/[0.06] px-2 py-0.5 font-mono text-[11px] text-foreground/80 lg:text-[13px]"
           >
             {tag}
           </span>
@@ -167,7 +167,7 @@ function EventDetail({
         href={event.link}
         target="_blank"
         rel="noreferrer noopener"
-        className="mt-8 inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background transition-colors hover:bg-foreground/90 lg:text-base"
+        className="mt-8 inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-[13px] font-semibold text-background transition-colors hover:bg-foreground/90 lg:text-sm"
       >
         Read more
         <ArrowUpRight className="size-4" />

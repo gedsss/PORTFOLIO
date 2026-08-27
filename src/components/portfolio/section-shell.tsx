@@ -37,9 +37,9 @@ export function SectionShell({
     <button
       type="button"
       onClick={onBack}
-      className="mb-6 inline-flex items-center gap-1.5 rounded-full border border-foreground/15 bg-foreground/5 px-4 py-2 text-sm font-medium text-foreground/75 transition-colors hover:border-foreground/30 hover:text-foreground lg:text-base"
+      className="mb-6 inline-flex items-center gap-1.5 rounded-full border border-foreground/15 bg-foreground/5 px-4 py-2 text-[13px] font-medium text-foreground/75 transition-colors hover:border-foreground/30 hover:text-foreground lg:text-sm"
     >
-      <ArrowLeft className="size-4 lg:size-[18px]" />
+      <ArrowLeft className="size-3.5 lg:size-4" />
       Back to start
     </button>
   ) : null;
@@ -52,7 +52,7 @@ export function SectionShell({
       transition={{ duration: 0.55, ease: EASE }}
       className="no-scrollbar absolute inset-0 overflow-y-auto"
     >
-      <div className="flex min-h-full w-full flex-col items-center justify-center px-4 py-24 sm:px-8">
+      <div className="flex min-h-full w-full flex-col items-center justify-center px-4 py-16 sm:px-8 sm:py-24">
         {panel ? (
           <div
             className={cn(

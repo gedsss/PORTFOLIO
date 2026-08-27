@@ -201,6 +201,25 @@ export const events = [
     link: "https://stellar.org/blog/foundation-news/the-blueprint-at-meridian-2025",
   },
   {
+    id: "sebrae-hacking-2026",
+    name: "Sebrae Hacking 2026",
+    org: "Sebrae Mato Grosso",
+    date: "May 22–23, 2026",
+    location: "Centro de Eventos do Pantanal, Cuiabá — Brazil",
+    role: "Attendee",
+    blurb:
+      "The 4th edition of Mato Grosso's largest innovation and creativity gathering — a summit of talks, panels and startup pitch competitions across six themed arenas.",
+    highlights: [
+      "Six concurrent arenas: Startups, Innovation Ecosystems, Science & Technology, Creators, Investment & Fundraising, and Digital Commerce",
+      "Startup pitch competitions with finals and prizes",
+      "Talks on AI, digital marketing, branding and business scaling from industry leaders",
+      "Networking with founders, investors and the regional innovation ecosystem",
+      "Live experiences — robotics demos, electric vehicles and more",
+    ],
+    tags: ["Sebrae", "Startups", "Innovation", "Mato Grosso", "Brazil"],
+    link: "https://cloud.divulga.sebraemt.com.br/sebrae-hacking-26",
+  },
+  {
     id: "csbc-2026",
     name: "CSBC 2026",
     org: "Brazilian Computer Society (SBC) · UFRGS",

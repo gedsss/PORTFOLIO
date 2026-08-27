@@ -45,13 +45,13 @@ function GroupList({ onSelect }: { onSelect: (id: string) => void }) {
       <motion.div variants={stagger} initial="hidden" animate="visible" className="w-full">
         <motion.h2
           variants={rise}
-          className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl xl:text-7xl"
+          className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl xl:text-6xl"
         >
           Certificates
         </motion.h2>
         <motion.p
           variants={rise}
-          className="mt-3 max-w-2xl text-lg leading-relaxed text-foreground/80 sm:text-xl lg:mt-4 lg:text-2xl"
+          className="mt-3 max-w-2xl text-base leading-relaxed text-foreground/80 sm:text-lg lg:mt-4 lg:text-xl"
         >
           Courses and programs I&apos;ve completed. Pick a collection to browse it.
         </motion.p>
@@ -71,16 +71,16 @@ function GroupList({ onSelect }: { onSelect: (id: string) => void }) {
                 className="group flex flex-col rounded-2xl border border-foreground/15 bg-foreground/[0.05] p-6 text-left transition-colors hover:border-foreground/30 hover:bg-foreground/[0.08] lg:p-7"
               >
                 <div className="flex items-start justify-between gap-3">
-                  <span className="rounded-full border border-foreground/20 px-2.5 py-0.5 text-[13px] font-medium text-foreground/75">
+                  <span className="rounded-full border border-foreground/20 px-2.5 py-0.5 text-[12px] font-medium text-foreground/75">
                     {count} {count === 1 ? "certificate" : "certificates"}
                   </span>
                   <ArrowUpRight className="size-5 shrink-0 text-foreground/50 transition-colors group-hover:text-foreground" />
                 </div>
 
-                <h3 className="mt-4 text-2xl font-semibold leading-snug text-foreground lg:text-3xl">
+                <h3 className="mt-4 text-xl font-semibold leading-snug text-foreground lg:text-2xl">
                   {group.label}
                 </h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-foreground/80 lg:text-base">
+                <p className="mt-3 text-[13px] leading-relaxed text-foreground/80 lg:text-[15px]">
                   {group.blurb}
                 </p>
               </motion.button>
@@ -110,16 +110,16 @@ function GroupDetail({
       <button
         type="button"
         onClick={onBackToList}
-        className="mb-6 inline-flex items-center gap-1.5 rounded-full border border-foreground/15 bg-foreground/5 px-4 py-2 text-sm font-medium text-foreground/75 transition-colors hover:border-foreground/30 hover:text-foreground lg:text-base"
+        className="mb-6 inline-flex items-center gap-1.5 rounded-full border border-foreground/15 bg-foreground/5 px-4 py-2 text-[13px] font-medium text-foreground/75 transition-colors hover:border-foreground/30 hover:text-foreground lg:text-sm"
       >
-        <ArrowLeft className="size-4 lg:size-[18px]" />
+        <ArrowLeft className="size-3.5 lg:size-4" />
         All collections
       </button>
 
-      <h2 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+      <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
         {group.label}
       </h2>
-      <p className="mt-3 max-w-3xl text-lg leading-relaxed text-foreground/85 lg:text-xl">
+      <p className="mt-3 max-w-3xl text-base leading-relaxed text-foreground/85 lg:text-lg">
         {group.blurb}
       </p>
 
@@ -142,10 +142,10 @@ function GroupDetail({
                 <ArrowUpRight className="size-4 shrink-0 text-foreground/45 transition-colors group-hover:text-foreground" />
               </div>
               <div>
-                <h3 className="text-[15px] font-semibold leading-snug text-foreground lg:text-base">
+                <h3 className="text-[13px] font-semibold leading-snug text-foreground lg:text-[15px]">
                   {certificate.title}
                 </h3>
-                <p className="mt-1 text-[13px] text-foreground/60 lg:text-sm">
+                <p className="mt-1 text-[12px] text-foreground/60 lg:text-[13px]">
                   {certificate.issuer}
                 </p>
               </div>
