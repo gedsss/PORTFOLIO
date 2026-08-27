@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Award, CalendarDays } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -46,30 +47,55 @@ export function HeroSection({ onNavigate }: { onNavigate: (section: SectionId) =
           {profile.tagline}
         </motion.p>
 
-        <motion.div
-          variants={rise}
-          className="flex flex-col items-center gap-3 pt-2 sm:flex-row sm:gap-4"
-        >
-          <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
-            <Button
-              size="lg"
-              onClick={() => onNavigate("skills")}
-              className="h-auto bg-foreground px-10 py-6 text-lg font-semibold text-background shadow-2xl transition-all duration-300 hover:bg-foreground/90 lg:px-12 lg:py-7 lg:text-xl"
-            >
-              Skills &amp; Information
-            </Button>
-          </motion.div>
+        <motion.div variants={rise} className="flex flex-col items-center gap-3 pt-2">
+          <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
+            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
+              <Button
+                size="lg"
+                onClick={() => onNavigate("skills")}
+                className="h-auto bg-foreground px-10 py-6 text-lg font-semibold text-background shadow-2xl transition-all duration-300 hover:bg-foreground/90 lg:px-12 lg:py-7 lg:text-xl"
+              >
+                Skills &amp; Information
+              </Button>
+            </motion.div>
 
-          <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
-            <Button
-              size="lg"
-              variant="outline"
-              onClick={() => onNavigate("projects")}
-              className="h-auto border-foreground/30 px-10 py-6 text-lg font-semibold text-foreground backdrop-blur-sm transition-all duration-300 hover:border-foreground/50 hover:bg-foreground/10 lg:px-12 lg:py-7 lg:text-xl"
-            >
-              Projects
-            </Button>
-          </motion.div>
+            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
+              <Button
+                size="lg"
+                variant="outline"
+                onClick={() => onNavigate("projects")}
+                className="h-auto border-foreground/30 px-10 py-6 text-lg font-semibold text-foreground backdrop-blur-sm transition-all duration-300 hover:border-foreground/50 hover:bg-foreground/10 lg:px-12 lg:py-7 lg:text-xl"
+              >
+                Projects
+              </Button>
+            </motion.div>
+          </div>
+
+          <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
+            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
+              <Button
+                size="lg"
+                variant="ghost"
+                onClick={() => onNavigate("events")}
+                className="h-auto gap-2 rounded-full border border-foreground/15 px-8 py-4 text-base font-medium text-foreground/80 backdrop-blur-sm transition-all duration-300 hover:border-foreground/35 hover:bg-foreground/10 hover:text-foreground lg:text-lg"
+              >
+                <CalendarDays className="size-5" />
+                Events
+              </Button>
+            </motion.div>
+
+            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
+              <Button
+                size="lg"
+                variant="ghost"
+                onClick={() => onNavigate("certificates")}
+                className="h-auto gap-2 rounded-full border border-foreground/15 px-8 py-4 text-base font-medium text-foreground/80 backdrop-blur-sm transition-all duration-300 hover:border-foreground/35 hover:bg-foreground/10 hover:text-foreground lg:text-lg"
+              >
+                <Award className="size-5" />
+                Certificates
+              </Button>
+            </motion.div>
+          </div>
         </motion.div>
       </motion.div>
     </SectionShell>

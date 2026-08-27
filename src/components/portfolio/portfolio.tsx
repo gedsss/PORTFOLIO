@@ -9,6 +9,8 @@ import { TopNav } from "@/components/portfolio/top-nav";
 import { HeroSection } from "@/components/portfolio/sections/hero-section";
 import { SkillsSection } from "@/components/portfolio/sections/skills-section";
 import { ProjectsSection } from "@/components/portfolio/sections/projects-section";
+import { EventsSection } from "@/components/portfolio/sections/events-section";
+import { CertificatesSection } from "@/components/portfolio/sections/certificates-section";
 
 export function Portfolio() {
   const [section, setSection] = useState<SectionId>("hero");
@@ -37,6 +39,15 @@ export function Portfolio() {
           )}
           {section === "projects" && (
             <ProjectsSection key="projects" onBack={() => setSection("hero")} />
+          )}
+          {section === "events" && (
+            <EventsSection key="events" onBack={() => setSection("hero")} />
+          )}
+          {section === "certificates" && (
+            <CertificatesSection
+              key="certificates"
+              onBack={() => setSection("hero")}
+            />
           )}
         </AnimatePresence>
       </div>
