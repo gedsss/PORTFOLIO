@@ -135,3 +135,21 @@
     display: none;
   }
 }
+
+/*
+ * Small screens: trim the whole type + spacing scale a touch.
+ * Everything in this project uses rem-based utilities (text-*, gap-*, p-*,
+ * size-*), so nudging the root font-size scales it all down proportionally
+ * without touching the desktop layout. Dial the percentages to taste.
+ */
+@media (max-width: 640px) {
+  :root {
+    font-size: 93.75%; /* 16px -> 15px */
+  }
+}
+
+@media (max-width: 400px) {
+  :root {
+    font-size: 90%; /* 16px -> 14.4px */
+  }
+}
