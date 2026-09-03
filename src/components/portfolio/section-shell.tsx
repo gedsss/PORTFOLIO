@@ -5,6 +5,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/components/portfolio/language-provider";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -32,6 +33,7 @@ export function SectionShell({
   onBack?: () => void;
 }) {
   const reduce = useReducedMotion();
+  const { t } = useLanguage();
 
   const backButton = onBack ? (
     <button
@@ -40,7 +42,7 @@ export function SectionShell({
       className="mb-6 inline-flex items-center gap-1.5 rounded-full border border-foreground/15 bg-foreground/5 px-4 py-2 text-[13px] font-medium text-foreground/75 transition-colors hover:border-foreground/30 hover:text-foreground lg:text-sm"
     >
       <ArrowLeft className="size-3.5 lg:size-4" />
-      Back to start
+      {t.ui.backToStart}
     </button>
   ) : null;
 

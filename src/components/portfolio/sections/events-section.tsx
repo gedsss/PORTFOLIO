@@ -4,16 +4,16 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft, ArrowUpRight, CalendarDays, MapPin, UserCheck } from "lucide-react";
 
-import { events } from "@/lib/portfolio-data";
+import { type EventItem } from "@/lib/portfolio-data";
 import { SectionShell, rise, stagger } from "@/components/portfolio/section-shell";
+import { useLanguage } from "@/components/portfolio/language-provider";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-type EventItem = (typeof events)[number];
-
 export function EventsSection({ onBack }: { onBack: () => void }) {
+  const { t } = useLanguage();
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const selected = events.find((event) => event.id === selectedId) ?? null;
+  const selected = t.events.items.find((event) => event.id === selectedId) ?? null;
 
   return (
     <SectionShell onBack={onBack}>
@@ -33,6 +33,8 @@ export function EventsSection({ onBack }: { onBack: () => void }) {
 }
 
 function EventList({ onSelect }: { onSelect: (id: string) => void }) {
+  const { t } = useLanguage();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 12 }}
@@ -46,17 +48,17 @@ function EventList({ onSelect }: { onSelect: (id: string) => void }) {
           variants={rise}
           className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl xl:text-6xl"
         >
-          Events
+          {t.events.heading}
         </motion.h2>
         <motion.p
           variants={rise}
           className="mt-3 max-w-2xl text-base leading-relaxed text-foreground/80 sm:text-lg lg:mt-4 lg:text-xl"
         >
-          Conferences and gatherings I&apos;ve taken part in. Pick one to see the details.
+          {t.events.intro}
         </motion.p>
 
         <div className="mt-8 grid gap-5 md:grid-cols-2 lg:mt-10 lg:gap-6">
-          {events.map((event) => (
+          {t.events.items.map((event) => (
             <motion.button
               key={event.id}
               type="button"
@@ -97,6 +99,8 @@ function EventDetail({
   event: EventItem;
   onBackToList: () => void;
 }) {
+  const { t } = useLanguage();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 12 }}
@@ -111,7 +115,7 @@ function EventDetail({
         className="mb-6 inline-flex items-center gap-1.5 rounded-full border border-foreground/15 bg-foreground/5 px-4 py-2 text-[13px] font-medium text-foreground/75 transition-colors hover:border-foreground/30 hover:text-foreground lg:text-sm"
       >
         <ArrowLeft className="size-3.5 lg:size-4" />
-        All events
+        {t.ui.allEvents}
       </button>
 
       <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-foreground/55 lg:text-xs">
@@ -169,7 +173,7 @@ function EventDetail({
         rel="noreferrer noopener"
         className="mt-8 inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-[13px] font-semibold text-background transition-colors hover:bg-foreground/90 lg:text-sm"
       >
-        Read more
+        {t.ui.readMore}
         <ArrowUpRight className="size-4" />
       </a>
     </motion.div>

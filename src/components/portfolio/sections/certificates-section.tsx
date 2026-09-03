@@ -4,17 +4,17 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft, ArrowUpRight, FileText, Image as ImageIcon } from "lucide-react";
 
-import { certificateGroups } from "@/lib/portfolio-data";
+import { type CertificateGroup } from "@/lib/portfolio-data";
 import { SectionShell, rise, stagger } from "@/components/portfolio/section-shell";
+import { useLanguage } from "@/components/portfolio/language-provider";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-type CertificateGroup = (typeof certificateGroups)[number];
-
 export function CertificatesSection({ onBack }: { onBack: () => void }) {
+  const { t } = useLanguage();
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const selected =
-    certificateGroups.find((group) => group.id === selectedId) ?? null;
+    t.certificates.groups.find((group) => group.id === selectedId) ?? null;
 
   return (
     <SectionShell onBack={onBack}>
@@ -34,6 +34,8 @@ export function CertificatesSection({ onBack }: { onBack: () => void }) {
 }
 
 function GroupList({ onSelect }: { onSelect: (id: string) => void }) {
+  const { t } = useLanguage();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 12 }}
@@ -47,17 +49,17 @@ function GroupList({ onSelect }: { onSelect: (id: string) => void }) {
           variants={rise}
           className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl xl:text-6xl"
         >
-          Certificates
+          {t.certificates.heading}
         </motion.h2>
         <motion.p
           variants={rise}
           className="mt-3 max-w-2xl text-base leading-relaxed text-foreground/80 sm:text-lg lg:mt-4 lg:text-xl"
         >
-          Courses and programs I&apos;ve completed. Pick a collection to browse it.
+          {t.certificates.intro}
         </motion.p>
 
         <div className="mt-8 grid gap-5 md:grid-cols-2 lg:mt-10 lg:gap-6">
-          {certificateGroups.map((group) => {
+          {t.certificates.groups.map((group) => {
             const count: number = group.certificates.length;
             return (
               <motion.button
@@ -72,7 +74,7 @@ function GroupList({ onSelect }: { onSelect: (id: string) => void }) {
               >
                 <div className="flex items-start justify-between gap-3">
                   <span className="rounded-full border border-foreground/20 px-2.5 py-0.5 text-[12px] font-medium text-foreground/75">
-                    {count} {count === 1 ? "certificate" : "certificates"}
+                    {t.ui.certificateCount(count)}
                   </span>
                   <ArrowUpRight className="size-5 shrink-0 text-foreground/50 transition-colors group-hover:text-foreground" />
                 </div>
@@ -99,6 +101,8 @@ function GroupDetail({
   group: CertificateGroup;
   onBackToList: () => void;
 }) {
+  const { t } = useLanguage();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 12 }}
@@ -113,7 +117,7 @@ function GroupDetail({
         className="mb-6 inline-flex items-center gap-1.5 rounded-full border border-foreground/15 bg-foreground/5 px-4 py-2 text-[13px] font-medium text-foreground/75 transition-colors hover:border-foreground/30 hover:text-foreground lg:text-sm"
       >
         <ArrowLeft className="size-3.5 lg:size-4" />
-        All collections
+        {t.ui.allCollections}
       </button>
 
       <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">

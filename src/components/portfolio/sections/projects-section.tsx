@@ -3,10 +3,12 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
-import { projects } from "@/lib/portfolio-data";
 import { SectionShell, rise, stagger } from "@/components/portfolio/section-shell";
+import { useLanguage } from "@/components/portfolio/language-provider";
 
 export function ProjectsSection({ onBack }: { onBack: () => void }) {
+  const { t } = useLanguage();
+
   return (
     <SectionShell onBack={onBack}>
       <motion.div variants={stagger} initial="hidden" animate="visible" className="w-full">
@@ -14,11 +16,11 @@ export function ProjectsSection({ onBack }: { onBack: () => void }) {
           variants={rise}
           className="mb-8 text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:mb-10 lg:text-5xl xl:text-6xl"
         >
-          Projects
+          {t.projects.heading}
         </motion.h2>
 
         <div className="grid gap-5 md:grid-cols-2 lg:gap-6">
-          {projects.map((project) => {
+          {t.projects.items.map((project) => {
             const hasLink = project.link && project.link !== "#";
             return (
               <motion.article
